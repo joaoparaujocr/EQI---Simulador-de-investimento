@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Calculadora de investimentos</title>
+</head>
+<body>
+    <header>
+        <h1>Simulador de investimentos</h1>
+    </header>
+
+    <section>
+        <div class="main_simulador">
+            <h2>Simulador</h2>
+
+            <form id="form_simulador" autocomplete="off" action="" method="GET">
+                <div class="rendimento">
+                    <div class="box_rendimento">
+                        <p>Rendimento</p>
+                        <div class="box_radios">
+                            <div class="radio_custom">
+                                <input checked type="radio" name="rendimento" id="bruto">
+                                <label for="bruto">Bruto</label>
+                            </div>
+    
+                            <div class="radio_custom">
+                                <input type="radio" name="rendimento" id="liquido">
+                                <label for="liquido">Liquido</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input_box">
+                        <label for="aporte_inicial">Aporte inicial</label>
+                        <input type="text" class="moeda_brl" id="aporte_inicial">
+                    </div>
+
+                    <div class="input_box">
+                        <label for="prazo">Prazo em meses</label>
+                        <input type="text" id="prazo">
+                    </div>
+
+                    <div class="input_box">
+                        <label for="ipca_ano">IPCA (ao ano)</label>
+                        <input disabled type="text" class="porcentagem" id="ipca_ano">
+                    </div>
+
+                </div>
+
+                <div class="indexacao">
+                    <div class="box_indexacao">
+                        <p>Tipos de indexação</p>
+                        <div class="box_radios">
+                            <div class="radio_custom">
+                                <input type="radio" name="indexacao" id="pre">
+                                <label for="pre">PRÉ</label>
+                            </div>
+    
+                            <div class="radio_custom">
+                                <input checked type="radio" name="indexacao" id="pos">
+                                <label for="pos">POS</label>
+                            </div>
+
+                            <div class="radio_custom">
+                                <input type="radio" name="indexacao" id="ipca">
+                                <label for="ipca">FIXADO</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input_box">
+                        <label for="aporte_mensal">Aporte mensal</label>
+                        <input type="text" class="moeda_brl" id="aporte_mensal">
+                    </div>
+
+                    <div class="input_box">
+                        <label for="rentabilidade">Rentabilidade</label>
+                        <input type="text" class="porcentagem" id="rentabilidade">
+                    </div>
+
+                    <div class="input_box">
+                        <label for="cdi">CDI (ao ano)</label>
+                        <input disabled class="porcentagem" type="text" id="cdi">
+                    </div>
+
+                </div>
+
+                <div class="btn_form">
+                    <input id="btn_limpar_campos" type="button" value="Limpar Campos">
+                    <input id="btn_simular" type="submit" value="Simular">
+                </div>
+            </form>
+        </div><!--main_simulador-->
+
+        <div class="resultado">
+            <h2 id="titulo_resultado"></h2>
+            <div id="resultado_main"></div>
+        </div>
+
+    </section>
+
+    <script src="./assets/js/bundle.js"></script>
+</body>
+</html>

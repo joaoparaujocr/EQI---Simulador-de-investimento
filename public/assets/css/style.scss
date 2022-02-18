@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans';
+}
+
+header {
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+section {
+    padding: 20px 2%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main_simulador {
+    width: 40%;
+
+    form {
+        margin-top: 10px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 50px;
+        row-gap: 10px;
+        column-gap: 50px;
+        grid-template-areas:
+            "rendimento indexacao"
+            "btn_form btn_form"
+        ;
+    }
+}
+
+.input_box {
+    position: relative;
+
+    label {
+        margin-bottom: 1px;
+        font-size: 14px;
+        display: inline-block;
+    }
+
+    input {
+        margin-bottom: 40px;
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        padding-left: 5px;
+        font-size: 18px;
+        display: inline-block;
+        outline: none;
+        border: 0;
+        border-bottom: 1px solid black;
+    }
+
+    p.input_message_error {
+        position: absolute;
+        bottom: 0;
+        color: red;
+        font-size: 13px;
+    }
+}
+
+.rendimento {
+    width: 100%;
+    grid-area: rendimento;
+
+    .box_rendimento {
+        margin: 10px 0;
+        width: 100%;
+        display: inline-block;
+
+        p {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+    }
+}
+
+.box_radios {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 1px solid black;
+    border-radius: 5px;
+
+    .radio_custom {
+        width: 100%;
+        height: 50px;
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        input {
+            display: none;
+        }
+
+        label {
+            cursor: pointer;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 5px;
+        }
+
+        input+label:before {
+            content: '';
+            background-color: white;
+            display: inline;
+            vertical-align: middle;
+            margin-bottom: 0;
+        }
+
+        input:checked+label:before {
+            content: '🗸';
+            box-sizing: content-box;
+            background-color: #ed8e53;
+            transition: .6s;
+        }
+
+        input:checked~label {
+            background: #ed8e53;
+            color: white;
+            transition: .6s;
+        }
+    }
+}
+
+.indexacao {
+    grid-area: indexacao;
+
+    .box_indexacao {
+        margin: 10px 0;
+
+        p {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+    }
+}
+
+.btn_form {
+    grid-area: btn_form;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    input {
+        width: 49%;
+        font-size: 20px;
+        padding: 10px 10px;
+        cursor: pointer;
+        outline: none;
+        border-radius: 5px;
+        font-weight: 700;
+    }
+
+    #btn_limpar_campos {
+        background: none;
+        border: 1px solid black;
+    }
+
+    #btn_simular {
+        border: none;
+        background: #ed8e53;
+    }
+}
+
+
+.resultado {
+    width: 60%;
+    padding: 0 2%;
+
+    h2#titulo_resultado {
+        text-align: left;
+        width: 100%;
+    }
+}
+
+#resultado_main {
+    margin: 20px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 80px 80px;
+    column-gap: 50px;
+    row-gap: 30px;
+}
+
+.box_resultado {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0px 0px 9px 2px rgba(0, 0, 0, 0.75);
+
+    p:first-child {
+        font-weight: bold;
+    }
+
+    p:last-child {
+        color: black;
+        font-weight: 500;
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .resultado {
+        #resultado_main {
+            grid-template-rows: 80px 80px;
+
+            .box_resultado {
+                text-align: center;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 876px) {
+    section .main_simulador {
+        width: 50%;
+
+        form {
+            column-gap: 20px;
+
+            .btn_form {
+
+                input {
+                    width: 49%;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    section .resultado {
+        width: 50%;
+
+        #resultado_main {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 80px 80px 80px;
+            column-gap: 10px;
+            row-gap: 10px;
+        }
+    }
+
+    .radio_custom {
+        label {
+            font-size: 14px;
+        }
+    }
+}
+
+@media screen and (max-width: 650px) {
+    section .main_simulador {
+        width: 60%;
+
+        form {
+            column-gap: 20px;
+
+            .btn_form {
+
+                input {
+                    width: 49%;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    section .resultado {
+        padding: 0 3% 0 0;
+        width: 40%;
+
+        #resultado_main {
+            grid-template-columns: 1fr;
+            grid-template-rows: 60px 60px 60px 60px 60px 60px;
+            column-gap: 1px;
+            row-gap: 10px;
+        }
+    }
+
+    .radio_custom {
+        label {
+            font-size: 14px;
+        }
+    }
+}
